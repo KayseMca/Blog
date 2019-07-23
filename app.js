@@ -13,7 +13,7 @@ var app = express();
 var PORT = process.env.PORT || 5555;
 //blog has image, title, body, created date
 
-mongoose.connect("mongodb+srv://kayse:000@cluster0-9j7b3.mongodb.net/test?retryWrites=true&w=majority",{ useNewUrlParser: true });
+mongoose.connect(process.env.MONGODB_URI || "mongodb+srv://kayse:000@cluster0-9j7b3.mongodb.net/test?retryWrites=true&w=majority",{ useNewUrlParser: true });
 
 app.set('view engine', 'ejs');
 app.use(express.static('public'));
