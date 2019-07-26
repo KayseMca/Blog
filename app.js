@@ -3,7 +3,7 @@ var express = require('express');
 var mongoose = require('mongoose');
 var bodyParser = require('body-parser');
 var methodOverride = require("method-override");
-//var keys        = require("./");
+var keys        = require("./");
 var expressSanitizer = require("express-sanitizer");
 var app = express();
 
@@ -13,7 +13,7 @@ var app = express();
 var PORT = process.env.PORT || 5555;
 //blog has image, title, body, created date
 
-mongoose.connect(process.env.MONGODB_URI || "mongodb+srv://kayse:000@cluster0-9j7b3.mongodb.net/test?retryWrites=true&w=majority",{ useNewUrlParser: true });
+mongoose.connect(process.env.MONGODB_URI || keys.database,{ useNewUrlParser: true });
 
 app.set('view engine', 'ejs');
 app.use(express.static('public'));
